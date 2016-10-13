@@ -2,12 +2,10 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-//to check current time range is in between start and end date.
+//check current time range is in between start and end time.
 var getIsOpenStatus = function(startTime, endTime) {
   var today = new Date(),
   resultObj = {};
-  console.log(today.getHours(), startTime, endTime);
-  console.log('conditions', startTime <= today.getHours(), today.getHours() <= endTime);
     resultObj.open = (startTime <= today.getHours()) && (today.getHours() <= endTime) ? true : false;
   return resultObj;
 };
